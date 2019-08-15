@@ -24,10 +24,10 @@ for loop in range(len(data)):
 keyx = sorted(list(set(keys)))
 print(keyx)
 
-kursor.execute('create table avengers( {} varchar(50))'.format(keyx[0]))
+kursor.execute('create table karakter( {} varchar(50))'.format(keyx[0]))
 
 for item in range(len(keyx)-1):
-    kursor.execute('alter table avengers add column {} varchar(50)'.format(keyx[item+1]))
+    kursor.execute('alter table karakter add column {} varchar(50)'.format(keyx[item+1]))
     dbku.commit()
 keys = []
 vals = []
@@ -38,7 +38,7 @@ for val in data:
 print(vals)
 
 for key,val in zip(keys,vals):
-    querydb = f''' insert into avengers {str(key).replace("'",'')} values{str(val)[9:].replace(')','')}) '''
+    querydb = f''' insert into karakter {str(key).replace("'",'')} values{str(val)[9:].replace(')','')}) '''
     print(querydb)
     kursor.execute(querydb)
     dbku.commit()
